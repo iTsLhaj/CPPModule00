@@ -1,9 +1,9 @@
-NAME = megaphone
-CC = c++
-CFLAGS = -Wall -Werror -Wextra --std=c++98
-RM = rm -rf
-SRC = src/megaphone.cpp
-OBJ = $(SRC:.cpp=.o)
+NAME	= megaphone
+CC		= c++
+CFLAGS	= -Wall -Werror -Wextra --std=c++98
+RM		= rm -rf
+SRC		= src/megaphone.cpp
+OBJ		= $(SRC:.cpp=.o)
 
 
 

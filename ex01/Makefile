@@ -1,10 +1,10 @@
-NAME = phonebook
-CC = c++
-CFLAGS = -Wall -Werror -Wextra --std=c++98
-RM = rm -rf
-INC = -I include/
-SRC = src/Contact.cpp src/PhoneBook.cpp src/main.cpp
-OBJ = $(SRC:.cpp=.o)
+NAME	= phonebook
+CC		= c++
+CFLAGS	= -Wall -Werror -Wextra --std=c++98
+RM		= rm -rf
+INC		= -I include/
+SRC		= src/Contact.cpp src/PhoneBook.cpp src/main.cpp
+OBJ		= $(SRC:.cpp=.o)
 
 
 
