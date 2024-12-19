@@ -1,6 +1,6 @@
 #include <Account.hpp>
-#include <iomanip>
 #include <iostream>
+#include <ctime>
 
 
 int Account::_nbAccounts = 0;
@@ -11,8 +11,12 @@ int Account::_totalNbWithdrawals = 0;
 void Account::_displayTimestamp(void) {
 
     time_t now = time(NULL);
-    std::cout   << std::put_time(localtime(&now), "[%Y%m%d_%H%M%S] ");
+    struct tm* lt = localtime(&now);
 
+	char buffer[20];
+	std::strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S] ", lt);
+	std::cout << buffer;
+	
 }
 
 int Account::getNbAccounts(void) {
@@ -112,9 +116,7 @@ bool Account::makeWithdrawal(int withdrawal) {
                 << this->_accountIndex
                 << ";p_amount:"
                 << this->_amount
-                << ";withdrawal:"
-                << withdrawal
-                << std::endl;
+                << ";withdrawal:";
     
     if (withdrawal > this->checkAmount())
     {
