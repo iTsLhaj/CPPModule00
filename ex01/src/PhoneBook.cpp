@@ -11,8 +11,9 @@ PhoneBook::~PhoneBook(void)
 
 void PhoneBook::showHeader(void) {
 
-    std::cout << "┌―――――――――――――――――――――――――――――――――――――――――――┐" << std::endl;
-    std::cout << "│     index│first name│ last name│ nickname │" << std::endl;
+    std::cout << "+-------------------------------------------+" << std::endl;
+    std::cout << "|     index|first name| last name| nickname |" << std::endl;
+    std::cout << "+-------------------------------------------+" << std::endl;
 
 }
 
@@ -26,12 +27,16 @@ void PhoneBook::showInstructions(void) {
 
 void PhoneBook::addContact(void) {
     
+	int index;
+
     if (this->contacts_count < 8) {
-        this->contacts[contacts_count].fillContact();
+        index = this->contacts_count;
+		this->contacts[index].fillContact();
         this->contacts_count++;
     } else {
         std::cout << "There Are Too Many Contacts The Oldest Will Be Replaced!" << std::endl;
-        
+        index = this->contacts_count % 8;
+		this->contacts[index].fillContact();
     }
     
 }

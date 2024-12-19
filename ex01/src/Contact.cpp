@@ -21,7 +21,7 @@ bool Contact::isNonNum(std::string s) {
     if (s[i] == '+')
         i++;
     for (; i < (int)s.length(); i++) {
-        if (!isnumber(s[i]))
+        if (!isdigit(s[i]))
             return true;
     }
     return false;
@@ -72,6 +72,7 @@ void Contact::showAllInfos(void) {
 void Contact::fillContact(void) {
     
     std::string info;
+	std::string value;
     
     for (int i = Contact::_firstField; i <= Contact::_lastField; i++) {
         while (true) {
@@ -86,13 +87,16 @@ void Contact::fillContact(void) {
             } else if (isNonNum(info) && Contact::_fields[i] == "PhoneNumber") {
                 std::cout << "The PhoneNumber Can't Contain Non-Numbers!" << std::endl;
                 continue;
-            }
-            for (int j = 0; j < (int)info.length(); j++) {
-                if (info[j] != '\t')
-                    this->_infos[i] += info[j];
-                else if (info[j] == '\t')
-                    this->_infos[i] += ' ';
-            }
+            } else {
+				value = "";
+				for (int j = 0; j < (int)info.length(); j++) {
+					if (info[j] != '\t')
+						value += info[j];
+					else if (info[j] == '\t')
+						value += ' ';
+				}
+				this->_infos[i] = value;
+			}
             break;
             
         }
