@@ -2,22 +2,21 @@ NAME	=	Bankster
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra  --std=c++98
 RM		=	rm -rf
-INCLUDE	=	-I include/
-SOURCES	=	src/Account.cpp src/tests.cpp
-OBJECTS	=	$(SOURCES:.cpp=.o)
+SRC		=	Account.cpp tests.cpp
+OBJ		=	$(SRC:.cpp=.o)
 
 
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	@$(CC) $(INCLUDE) $(CFLAGS) $^ -o $@
+$(NAME): $(OBJ)
+	@$(CC) $(CFLAGS) $^ -o $@
 
 %.o: %.cpp
-	@$(CC) $(INCLUDE) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJECTS)
+	@$(RM) $(OBJ)
 
 fclean: clean
 	@$(RM) $(NAME)

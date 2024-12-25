@@ -1,4 +1,4 @@
-#include <Contact.hpp>
+#include "Contact.hpp"
 
 int Contact::_instances = 0;
 const int Contact::_firstField = 0;
