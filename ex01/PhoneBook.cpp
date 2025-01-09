@@ -37,6 +37,7 @@ void PhoneBook::addContact(void) {
         std::cout << "There Are Too Many Contacts The Oldest Will Be Replaced!" << std::endl;
         index = this->contacts_count % 8;
 		this->contacts[index].fillContact();
+        this->contacts_count++;
     }
     
 }
@@ -73,7 +74,7 @@ void PhoneBook::searchContact(void) {
 void PhoneBook::showContacts(void) {
 
     this->showHeader();
-    for (int i = 0; i < this->contacts_count; i++) {
+    for (int i = 0; i < 8; i++) {
         this->contacts[i].showContact();
     }
 
